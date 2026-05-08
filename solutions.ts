@@ -7,3 +7,27 @@ function filterEvenNumbers(numbers: number[]): number[] {
 function reverseString(str: string): string {
   return str.split("").reverse().join("");
 }
+
+// Problem 3
+type StringOrNumber = string | number;
+
+function checkType(value: StringOrNumber): "String" | "Number" {
+  if (typeof value === "string") return "String";
+  return "Number";
+}
+
+// Problem 4
+function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
+  return obj[key];
+}
+
+// Problem 5
+interface Book {
+  title: string;
+  author: string;
+  publishedYear: number;
+}
+
+function toggleReadStatus(book: Book): Book & { isRead: boolean } {
+  return { ...book, isRead: true };
+}
